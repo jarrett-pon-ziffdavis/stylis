@@ -375,7 +375,7 @@
 									chars = chars.replace(formatptn, '')
 								}
 
-								second = chars.charCodeAt(1)
+								second = chars.charCodeAt(1) === CHARSET && chars.charCodeAt(3) === 110 ? MEDIA : chars.charCodeAt(1)
 
 								switch (second) {
 									case DOCUMENT:

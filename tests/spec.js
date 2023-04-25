@@ -452,6 +452,68 @@ var spec = {
 		`.user > #box-not-working{height:90px;}`+
 		`}`
 	},
+	'@container': {
+		sample: `
+			@container (max-width:600px) {
+				color:red;
+				h1 {
+					color:red;
+
+					h2 {
+						color:blue;
+					}
+				}
+				display:none;
+			}
+
+			@container (min-width:576px) {
+				&.card-deck {
+					.card {
+				 		&:not(:first-child) {
+				   			margin-left:15px;
+				 		}
+						&:not(:last-child) {
+				   			margin-right:15px;
+						}
+					}
+				}
+			}
+
+			@supports (display:block) {
+				@container (min-width:10px) {
+			  	background-color:seagreen;
+				}
+			}
+
+			@container (max-width:600px) {
+		   	& { color:red }
+		 	}
+
+
+		 	&:hover {
+		   	color:orange
+		 	}
+		`
+		,
+		expected:
+		`@container (max-width:600px){`+
+		`.user{color:red;display:none;}`+
+		`.user h1{color:red;}`+
+		`.user h1 h2{color:blue;}`+
+		`}`+
+
+		`@container (min-width:576px){`+
+		`.user.card-deck .card:not(:first-child){margin-left:15px;}`+
+		`.user.card-deck .card:not(:last-child){margin-right:15px;}`+
+		`}`+
+
+		`@supports (display:block){`+
+		`@container (min-width:10px){`+
+		`.user{background-color:seagreen;}`+
+		`}}`+
+		'@container (max-width:600px){.user{color:red;}}'+
+		`.user:hover{color:orange;}`
+	},
 	'@font-face': {
 		sample: `
 			@font-face {
