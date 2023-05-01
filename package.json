@@ -5,7 +5,7 @@
 	"jsdelivr": "stylis.min.js",
 	"types": "stylis.d.ts",
 	"description": "light - weight css preprocessor",
-	"version": "3.5.4",
+	"version": "3.5.4-a",
 	"homepage": "https://github.com/thysultan/stylis.js",
 	"license": "MIT",
 	"author": {
@@ -35,6 +35,6 @@
 		"stylis.d.ts"
 	],
 	"devDependencies": {
-		"uglify-js": "^3.2.2"
+		"uglify-js": "3.2.2"
 	}
 }

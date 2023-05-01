@@ -38,6 +38,10 @@ var sample = `
 	@media {
 		display: block;
 	}
+
+	@container {
+		color: red;
+	}
 `
 stylis.use(stylisAst)
 console.log(stylis('#id', sample))

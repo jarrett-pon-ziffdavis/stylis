@@ -1744,6 +1744,24 @@ var spec = {
 		`,
 		expected: `@media{.user div a{color:red;}@media{.user div a h1{color:red;}}}`
 	},
+	'nesting @contaier multiple levels': {
+		sample: `
+			div {
+				@contaier {
+					a {
+						color:red;
+
+						@contaier {
+							h1 {
+								color:red;
+							}
+						}
+					}
+				}
+			}
+		`,
+		expected: `@contaier{.user div a{color:red;}@contaier{.user div a h1{color:red;}}}`
+	},
 	'compress': {
 		options: {
 			compress: true
